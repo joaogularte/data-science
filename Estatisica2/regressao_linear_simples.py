@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from yellowbrick.regressor import ResidualsPlot
 from sklearn.linear_model import LinearRegression
 
 base = pd.read_csv('../Dados/cars.csv')
@@ -30,6 +31,17 @@ plt.show()
 #Distancia 22 pés
 print(modelo.intercept_ + modelo.coef_ *22)
 print(modelo.predict([[22]]))
+
+#Residuos
+print(modelo._residues)
+
+#Classe que gera o visualizador de residuos
+visualizador = ResidualsPlot(modelo)
+visualizador.fit(x, y)
+visualizador.poof()
+
+
+
 
 
 
