@@ -29,3 +29,7 @@ plt.show()
 
 #Distancia 22 pés
 print(modelo.intercept_ + modelo.coef_ *22)
+print(modelo.predict([[22]]))
+
+
+
