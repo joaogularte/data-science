@@ -10,12 +10,12 @@ base = base.drop(['Unnamed: 0'], axis = 1)
 
 
 x = base.iloc[:, 1].values
-x = x.reshape(-1, 1)
 y = base.iloc[:, 0].values
 #Cria a correlação entre x e y
-#correlacao = np.corrcoef(x, y)
-#print(correlacao)
+correlacao = np.corrcoef(x, y)
+print(correlacao)
 
+x = x.reshape(-1, 1)
 #Classe utilizada por fazer a regressão linear
 modelo = LinearRegression()
 modelo.fit(x, y)
