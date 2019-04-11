@@ -32,7 +32,14 @@ def model(x):
 
 r = model(X_teste * modelo.coef_ + modelo.intercept_).ravel()
 
-
 plt.scatter(x, y)
 plt.plot(X_teste, r, color = "red")
 plt.show()
+
+base_previsoes = pd.read_csv('../Dados/NovosCandidatos.csv', sep = ';')
+despesas = base_previsoes.iloc[:, 1].values
+despesas = despesas.reshape(-1, 1)
+previsoes_teste = modelo.predict(despesas)
+base_previsoes = np.column_stack((base_previsoes, previsoes_teste))
+print("Previsoes novos candidatos")
+print(base_previsoes)
