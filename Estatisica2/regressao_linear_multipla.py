@@ -28,3 +28,4 @@ print(modelo.score(x, y))
 
 previsoes = modelo.predict(x)
 print(previsoes)
+print("teste")
